@@ -49,13 +49,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onBtnCountClick(View view) {
-        if (countOption.getSelectedItem().toString().equals("Chars")) {
-
-            String userInput = this.userInput.getText().toString();
-            int count = TextCounting.getCharsCount(userInput);
+        String userInput = this.userInput.getText().toString();
+        int count;
+        if (userInput.isEmpty()) {
+            Toast.makeText(this,"The text field is empty, please fill it", Toast.LENGTH_LONG).show();
+        } else if (countOption.getSelectedItem().toString().equals("Chars")) {
+            count = TextCounting.getCharsCount(userInput);
             tvResult.setText(String.valueOf(count));
         } else {
-            Toast.makeText(this, "Counting words", Toast.LENGTH_LONG).show();
+            count = TextCounting.getWordsCount(userInput);
+            tvResult.setText(String.valueOf(count));
         }
     }
 

@@ -7,6 +7,9 @@ public class TextCounting {
     }
 
     public static int getWordsCount(String userPhrase) {
-        return userPhrase.length();
+        String text = userPhrase.trim();
+        //Split the text by one or more spaces and insert it into an array of strings
+        String[] words = text.split("\\s+");
+        return words.length;
     }
 }
