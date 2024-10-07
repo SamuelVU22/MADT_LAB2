@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -36,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
         userInput = findViewById(R.id.userInput);
         countOption = (Spinner) findViewById(R.id.countOption);
-        tvResult = findViewById(R.id.userInput);
+        tvResult = findViewById(R.id.resultCount);
         // Create an ArrayAdapter using the string array and a default spinner layout.
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.countOption, android.R.layout.simple_spinner_item);
 // Specify the layout to use when the list of choices appears.
@@ -48,10 +49,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onBtnCountClick(View view) {
-        String userInput = String.valueOf(this.userInput);
-        TextCounting tc = new TextCounting();
-        int count = tc.getCharsCount(userInput);
-        tvResult.setText(String.valueOf(count));
+        if (countOption.getSelectedItem().toString().equals("Chars")) {
+
+            String userInput = this.userInput.getText().toString();
+            int count = TextCounting.getCharsCount(userInput);
+            tvResult.setText(String.valueOf(count));
+        } else {
+            Toast.makeText(this, "Counting words", Toast.LENGTH_LONG).show();
+        }
     }
 
 
