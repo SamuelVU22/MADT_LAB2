@@ -9,7 +9,7 @@ public class TextCounting {
     public static int getWordsCount(String userPhrase) {
         String text = userPhrase.trim();
         //Split the text by one or more spaces and insert it into an array of strings
-        String[] words = text.split("\\s+");
-        return words.length;
+        String[] words = text.split("[\\s.,]+");
+        return words.length == 1 && words[0].isEmpty() ? 0 : words.length;
     }
 }

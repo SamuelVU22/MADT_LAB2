@@ -1,8 +1,11 @@
 <resources>
     <string name="app_name">MADT_LAB2</string>
-    <string-array name="countOption">
+    <string name="insert_text">Insert text</string>
+    <string name="count">Count</string>
+    <string name="result">Result</string>
+    <string name="empty_field_error">The text field is empty, please fill it</string>
+    <string-array name="countOptions">
         <item>Chars</item>
         <item>Words</item>
     </string-array>
 </resources>
-
