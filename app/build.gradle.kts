@@ -40,4 +40,8 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+    testImplementation(libs.junit) // For unit tests
+    androidTestImplementation(libs.junit.v115) // JUnit for Android
+    androidTestImplementation(libs.espresso.core.v351) // Espresso for UI testing
+
 }
